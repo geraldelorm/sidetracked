@@ -129,7 +129,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           </div>
 
           {/* Subscribe */}
-          <div className="mt-16">
+          <div id="subscribe" className="mt-16">
             <SubscribeForm />
           </div>
         </article>
