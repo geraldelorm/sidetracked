@@ -4,33 +4,49 @@ import { useState } from "react";
 
 export default function SubscribeForm() {
   const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error" | "duplicate">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!email) return;
     setStatus("loading");
+    setErrorMsg("");
 
-    // TODO: wire up to your email provider (Mailchimp, ConvertKit, Resend, etc.)
-    // For now, simulate success
-    await new Promise((r) => setTimeout(r, 900));
-    setStatus("success");
-    setEmail("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await res.json();
+
+      if (res.status === 409) {
+        setStatus("duplicate");
+      } else if (!res.ok) {
+        setErrorMsg(data.error ?? "Something went wrong. Please try again.");
+        setStatus("error");
+      } else {
+        setStatus("success");
+        setEmail("");
+      }
+    } catch {
+      setErrorMsg("Something went wrong. Please try again.");
+      setStatus("error");
+    }
   }
 
   return (
     <section
       id="subscribe"
       className="rounded-2xl p-8 md:p-12 text-center"
-      style={{
-        background: "var(--bg-muted)",
-        border: "1px solid var(--border)",
-      }}
+      style={{ background: "var(--bg-muted)", border: "1px solid var(--border)" }}
     >
       <div className="max-w-lg mx-auto">
         <span
           className="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1 rounded-full"
-          style={{ background: "var(--bg-muted)", color: "var(--accent)", border: "1px solid var(--border)" }}
+          style={{ background: "var(--bg-card)", color: "var(--accent)", border: "1px solid var(--border)" }}
         >
           Newsletter
         </span>
@@ -45,12 +61,22 @@ export default function SubscribeForm() {
         {status === "success" ? (
           <div
             className="flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-medium text-sm"
-            style={{ background: "var(--bg-muted)", color: "#86efac", border: "1px solid #166534" }}
+            style={{ background: "var(--bg-card)", color: "#86efac", border: "1px solid #166534" }}
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <polyline points="20 6 9 17 4 12" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
-            You&rsquo;re in! Check your inbox.
+            You&rsquo;re in! Check your inbox for a confirmation email.
+          </div>
+        ) : status === "duplicate" ? (
+          <div
+            className="flex items-center justify-center gap-2 py-4 px-6 rounded-xl font-medium text-sm"
+            style={{ background: "var(--bg-card)", color: "var(--accent)", border: "1px solid var(--border)" }}
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
+            You&rsquo;re already subscribed!
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3">
@@ -61,11 +87,7 @@ export default function SubscribeForm() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className="flex-1 px-4 py-3 rounded-xl text-sm outline-none transition-colors"
-              style={{
-                background: "var(--bg-card)",
-                border: "1px solid var(--border)",
-                color: "var(--text)",
-              }}
+              style={{ background: "var(--bg-card)", border: "1px solid var(--border)", color: "var(--text)" }}
               onFocus={(e) => (e.currentTarget.style.borderColor = "var(--accent)")}
               onBlur={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
             />
@@ -81,9 +103,7 @@ export default function SubscribeForm() {
         )}
 
         {status === "error" && (
-          <p className="mt-3 text-xs" style={{ color: "#f87171" }}>
-            Something went wrong. Please try again.
-          </p>
+          <p className="mt-3 text-xs" style={{ color: "#f87171" }}>{errorMsg}</p>
         )}
       </div>
     </section>
