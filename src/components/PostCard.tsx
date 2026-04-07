@@ -26,6 +26,8 @@ export default function PostCard({ post, featured = false }: { post: Post; featu
           src={post.coverImage || FALLBACK}
           alt={post.title}
           fill
+          priority={featured}
+          loading={featured ? "eager" : "lazy"}
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes={featured ? "(max-width: 768px) 100vw, 320px" : "(max-width: 768px) 100vw, 400px"}
         />
