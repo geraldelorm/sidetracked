@@ -36,10 +36,10 @@ export default function PostCard({ post, featured = false }: { post: Post; featu
           <span
             className="absolute top-3 left-3 text-xs font-semibold px-2.5 py-1 rounded-full"
             style={{
-              background: "rgba(12,12,15,0.85)",
+              background: "var(--bg-card)",
               color: "var(--accent)",
               border: "1px solid var(--border)",
-              backdropFilter: "blur(6px)",
+              backdropFilter: "blur(8px)",
             }}
           >
             {post.category}

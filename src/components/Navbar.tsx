@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import ThemeToggle from "./ThemeToggle";
 
 const CATEGORIES = ["Tech", "Lifestyle", "Gaming", "Productivity", "Opinion"];
 
@@ -10,26 +11,18 @@ export default function Navbar() {
 
   return (
     <header
-      style={{ borderBottom: "1px solid var(--border)", background: "rgba(12,12,15,0.85)" }}
+      style={{ borderBottom: "1px solid var(--border)", background: "var(--navbar-bg)" }}
       className="sticky top-0 z-50 backdrop-blur-md"
     >
       <div className="max-w-5xl mx-auto px-5 h-14 flex items-center justify-between gap-6">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
-          <span
-            className="text-lg font-bold tracking-tight"
-            style={{ color: "var(--text)" }}
-          >
-            Alt
-            <span style={{ color: "var(--accent)" }}>Tab</span>
+          <span className="text-lg font-bold tracking-tight" style={{ color: "var(--text)" }}>
+            Alt<span style={{ color: "var(--accent)" }}>Tab</span>
           </span>
           <span
             className="text-xs font-medium px-1.5 py-0.5 rounded"
-            style={{
-              background: "var(--bg-muted)",
-              color: "var(--text-muted)",
-              border: "1px solid var(--border)",
-            }}
+            style={{ background: "var(--bg-muted)", color: "var(--text-muted)", border: "1px solid var(--border)" }}
           >
             β
           </span>
@@ -43,27 +36,21 @@ export default function Navbar() {
               href={`/category/${cat.toLowerCase()}`}
               className="text-sm transition-colors"
               style={{ color: "var(--text-muted)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--text)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--text-muted)")
-              }
+              onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
             >
               {cat}
             </Link>
           ))}
         </nav>
 
-        {/* CTA */}
-        <div className="flex items-center gap-3">
+        {/* Right side */}
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
           <Link
             href="#subscribe"
-            className="hidden md:inline-flex text-sm font-medium px-4 py-1.5 rounded-full transition-colors"
-            style={{
-              background: "var(--accent)",
-              color: "#0c0c0f",
-            }}
+            className="hidden md:inline-flex text-sm font-medium px-4 py-1.5 rounded-full transition-opacity hover:opacity-90"
+            style={{ background: "var(--accent)", color: "#fff" }}
           >
             Subscribe
           </Link>
@@ -106,7 +93,7 @@ export default function Navbar() {
           <Link
             href="#subscribe"
             className="mt-1 text-sm font-medium text-center px-4 py-2 rounded-full"
-            style={{ background: "var(--accent)", color: "#0c0c0f" }}
+            style={{ background: "var(--accent)", color: "#fff" }}
             onClick={() => setMenuOpen(false)}
           >
             Subscribe
