@@ -117,7 +117,8 @@ export async function getAllPosts(): Promise<Post[]> {
         publishedAt: extractText(getProperty(page, "Published")),
         tags: extractTags(getProperty(page, "Tags")),
       }));
-  } catch {
+  } catch (err) {
+    console.error("[Notion] getAllPosts error:", err);
     return getMockPosts();
   }
 }
