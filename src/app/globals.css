@@ -1,15 +1,32 @@
 @import "tailwindcss";
 
+/* ── Dark theme (default) ──────────────────────────── */
 :root {
   --bg: #0c0c0f;
   --bg-card: #111116;
   --bg-muted: #16161d;
+  --bg-subtle: #1a1028;
   --border: #1e1e2a;
   --text: #e8e8ea;
   --text-muted: #7a7a8a;
   --text-faint: #4a4a5a;
   --accent: #a78bfa;
   --accent-hover: #c4b5fd;
+  --navbar-bg: rgba(12,12,15,0.85);
+}
+
+/* ── Light theme ───────────────────────────────────── */
+[data-theme="light"] {
+  --bg: #f9f9fb;
+  --bg-card: #ffffff;
+  --bg-muted: #f0f0f5;
+  --border: #e2e2ea;
+  --text: #2a2a3d;
+  --text-muted: #606070;
+  --text-faint: #9999aa;
+  --accent: #7c3aed;
+  --accent-hover: #6d28d9;
+  --navbar-bg: rgba(249,249,251,0.85);
 }
 
 @theme inline {
@@ -47,7 +64,7 @@ body {
 
 /* Prose styles for blog content */
 .prose {
-  color: #b8b8c8;
+  color: var(--text-muted);
   max-width: 70ch;
   line-height: 1.85;
   font-size: 1.0625rem;

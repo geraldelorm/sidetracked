@@ -23,7 +23,7 @@ export default function SubscribeForm() {
       id="subscribe"
       className="rounded-2xl p-8 md:p-12 text-center"
       style={{
-        background: "linear-gradient(135deg, #13131a 0%, #1a1028 100%)",
+        background: "var(--bg-muted)",
         border: "1px solid var(--border)",
       }}
     >
@@ -73,7 +73,7 @@ export default function SubscribeForm() {
               type="submit"
               disabled={status === "loading"}
               className="px-6 py-3 rounded-xl font-semibold text-sm transition-opacity disabled:opacity-60 shrink-0"
-              style={{ background: "var(--accent)", color: "#0c0c0f" }}
+              style={{ background: "var(--accent)", color: "#ffffff" }}
             >
               {status === "loading" ? "Subscribing…" : "Subscribe →"}
             </button>
