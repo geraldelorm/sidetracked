@@ -2,12 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { Client } from "@notionhq/client";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-const notion = new Client({ auth: process.env.NOTION_API_KEY });
-
 const BLOG_URL = process.env.BLOG_URL ?? "https://sidetracked-two.vercel.app";
 
 export async function POST(req: NextRequest) {
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  const notion = new Client({ auth: process.env.NOTION_API_KEY });
   try {
     const { email } = await req.json();
 
