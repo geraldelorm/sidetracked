@@ -73,7 +73,7 @@ export default async function HomePage() {
       )}
 
       {/* ── Subscribe ────────────────────────────────────── */}
-      <div className="mb-16">
+      <div id="subscribe" className="mb-16">
         <SubscribeForm />
       </div>
 
