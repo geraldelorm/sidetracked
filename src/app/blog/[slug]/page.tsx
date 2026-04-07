@@ -17,13 +17,24 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const result = await getPostBySlug(slug);
   if (!result) return {};
+  const { post } = result;
+  const BLOG_URL = process.env.BLOG_URL ?? "https://sidetracked-two.vercel.app";
   return {
-    title: `${result.post.title} — AltTab`,
-    description: result.post.excerpt,
+    title: post.title,
+    description: post.excerpt,
     openGraph: {
-      title: result.post.title,
-      description: result.post.excerpt,
-      images: result.post.coverImage ? [result.post.coverImage] : [],
+      title: post.title,
+      description: post.excerpt,
+      type: "article",
+      url: `${BLOG_URL}/blog/${slug}`,
+      images: post.coverImage ? [{ url: post.coverImage, width: 1200, height: 630 }] : [],
+      publishedTime: post.publishedAt,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: post.coverImage ? [post.coverImage] : [],
     },
   };
 }
