@@ -48,6 +48,15 @@ export default function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <Link
+            href="/about"
+            className="hidden md:inline-flex text-sm transition-colors"
+            style={{ color: "var(--text-muted)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+          >
+            About
+          </Link>
+          <Link
             href="#subscribe"
             className="hidden md:inline-flex text-sm font-medium px-4 py-1.5 rounded-full transition-opacity hover:opacity-90"
             style={{ background: "var(--accent)", color: "#fff" }}
@@ -90,6 +99,14 @@ export default function Navbar() {
               {cat}
             </Link>
           ))}
+          <Link
+            href="/about"
+            className="text-sm py-1"
+            style={{ color: "var(--text-muted)" }}
+            onClick={() => setMenuOpen(false)}
+          >
+            About
+          </Link>
           <Link
             href="#subscribe"
             className="mt-1 text-sm font-medium text-center px-4 py-2 rounded-full"
