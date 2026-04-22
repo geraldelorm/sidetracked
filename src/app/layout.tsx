@@ -48,7 +48,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <head>
-        <AdSense pubId='9012185624278768' />
+        <AdSense/>
       </head>
       <body className='flex flex-col min-h-screen'>
         <ThemeProvider>

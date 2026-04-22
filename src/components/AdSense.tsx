@@ -2,15 +2,11 @@
 
 import Script from 'next/script';
 
-type AdSenseTypes = {
-  pubId: string;
-};
-
-export default function AdSense(pubId: AdSenseTypes) {
+export default function AdSense() {
   return (
     <Script
       async
-      src={`https://pagead2.googlesyncdication.com/pagead/js/adsbygoogle.js?client=ca-pub-${pubId}`}
+      src={`https://pagead2.googlesyncdication.com/pagead/js/adsbygoogle.js?client=ca-pub-9012185624278768`}
       crossOrigin='anonymous'
     />
   );
