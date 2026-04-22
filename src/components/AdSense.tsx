@@ -10,7 +10,7 @@ export default function AdSense(pubId: AdSenseTypes) {
   return (
     <Script
       async
-      src={`https://pagead2.google.syncdication.com/pagead/js/adsbygoogle.js?client=ca-pub-${pubId}`}
+      src={`https://pagead2.googlesyncdication.com/pagead/js/adsbygoogle.js?client=ca-pub-${pubId}`}
       crossOrigin='anonymous'
     />
   );
