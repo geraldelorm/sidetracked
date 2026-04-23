@@ -1,6 +1,5 @@
 import { getPostBySlug, getAllPosts } from "@/lib/notion";
 import AdBanner from "@/components/AdBanner";
-import SubscribeForm from "@/components/SubscribeForm";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -128,10 +127,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             <ReactMarkdown>{markdown}</ReactMarkdown>
           </div>
 
-          {/* Subscribe */}
-          <div id="subscribe" className="mt-16">
-            <SubscribeForm />
-          </div>
         </article>
 
         {/* ── Sidebar ──────────────────────────────────────── */}

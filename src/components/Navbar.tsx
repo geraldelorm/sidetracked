@@ -56,13 +56,6 @@ export default function Navbar() {
           >
             About
           </Link>
-          <Link
-            href="#subscribe"
-            className="hidden md:inline-flex text-sm font-medium px-4 py-1.5 rounded-full transition-opacity hover:opacity-90"
-            style={{ background: "var(--accent)", color: "#fff" }}
-          >
-            Subscribe
-          </Link>
 
           {/* Hamburger */}
           <button
@@ -106,14 +99,6 @@ export default function Navbar() {
             onClick={() => setMenuOpen(false)}
           >
             About
-          </Link>
-          <Link
-            href="#subscribe"
-            className="mt-1 text-sm font-medium text-center px-4 py-2 rounded-full"
-            style={{ background: "var(--accent)", color: "#fff" }}
-            onClick={() => setMenuOpen(false)}
-          >
-            Subscribe
           </Link>
         </div>
       )}

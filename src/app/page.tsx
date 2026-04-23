@@ -1,6 +1,5 @@
 import { getAllPosts } from "@/lib/notion";
 import PostCard from "@/components/PostCard";
-import SubscribeForm from "@/components/SubscribeForm";
 import AdBanner from "@/components/AdBanner";
 
 export const revalidate = 60;
@@ -71,11 +70,6 @@ export default async function HomePage() {
           </div>
         </section>
       )}
-
-      {/* ── Subscribe ────────────────────────────────────── */}
-      <div id="subscribe" className="mb-16">
-        <SubscribeForm />
-      </div>
 
       {/* ── More posts ───────────────────────────────────── */}
       {rest.length > 3 && (

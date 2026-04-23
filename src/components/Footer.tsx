@@ -15,7 +15,6 @@ export default function Footer() {
         </div>
         <div className="flex items-center gap-5">
           <Link href="/about" className="hover:text-white transition-colors">About</Link>
-          <Link href="#subscribe" className="hover:text-white transition-colors">Subscribe</Link>
           <a
             href="https://twitter.com"
             target="_blank"
