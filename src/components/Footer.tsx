@@ -17,6 +17,9 @@ export default function Footer() {
           <Link href="/about" className="hover:text-white transition-colors">
             About
           </Link>
+          <Link href="/privacy" className="hover:text-white transition-colors">
+            Privacy
+          </Link>
           <a
             href="https://twitter.com"
             target="_blank"
