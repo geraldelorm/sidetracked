@@ -18,11 +18,15 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 shrink-0">
           <span className="text-lg font-bold tracking-tight" style={{ color: "var(--text)" }}>
-            Alt<span style={{ color: "var(--accent)" }}>Tab</span>
+            Side<span style={{ color: "var(--accent)" }}>Tracked</span>
           </span>
           <span
             className="text-xs font-medium px-1.5 py-0.5 rounded"
-            style={{ background: "var(--bg-muted)", color: "var(--text-muted)", border: "1px solid var(--border)" }}
+            style={{
+              background: "var(--bg-muted)",
+              color: "var(--text-muted)",
+              border: "1px solid var(--border)",
+            }}
           >
             β
           </span>
@@ -64,7 +68,14 @@ export default function Navbar() {
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+            >
               {menuOpen ? (
                 <path d="M18 6L6 18M6 6l12 12" strokeLinecap="round" />
               ) : (

@@ -18,7 +18,10 @@ export default async function HomePage() {
         >
           Always sidetracked, never bored
         </p>
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-5" style={{ color: "var(--text)" }}>
+        <h1
+          className="text-4xl md:text-6xl font-bold leading-tight mb-5"
+          style={{ color: "var(--text)" }}
+        >
           The internet&rsquo;s{" "}
           <span
             style={{
@@ -30,9 +33,12 @@ export default async function HomePage() {
             favourite detour
           </span>
         </h1>
-        <p className="max-w-xl mx-auto text-base md:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
-          Consumer electronics, tech deep-dives, lifestyle picks, and whatever random rabbit hole
-          we fell into this week.
+        <p
+          className="max-w-xl mx-auto text-base md:text-lg leading-relaxed"
+          style={{ color: "var(--text-muted)" }}
+        >
+          Consumer electronics, tech deep-dives, lifestyle picks, and whatever random rabbit hole we
+          fell into this week.
         </p>
       </section>
 
@@ -45,7 +51,10 @@ export default async function HomePage() {
       {featured && (
         <section className="mb-12">
           <div className="flex items-center gap-3 mb-5">
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--accent)" }}>
+            <span
+              className="text-xs font-semibold tracking-widest uppercase"
+              style={{ color: "var(--accent)" }}
+            >
               Featured
             </span>
             <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
@@ -58,7 +67,10 @@ export default async function HomePage() {
       {rest.length > 0 && (
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-5">
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--text-muted)" }}>
+            <span
+              className="text-xs font-semibold tracking-widest uppercase"
+              style={{ color: "var(--text-muted)" }}
+            >
               Latest
             </span>
             <div className="flex-1 h-px" style={{ background: "var(--border)" }} />
@@ -75,7 +87,10 @@ export default async function HomePage() {
       {rest.length > 3 && (
         <section className="mb-16">
           <div className="flex items-center gap-3 mb-5">
-            <span className="text-xs font-semibold tracking-widest uppercase" style={{ color: "var(--text-muted)" }}>
+            <span
+              className="text-xs font-semibold tracking-widest uppercase"
+              style={{ color: "var(--text-muted)" }}
+            >
               More reads
             </span>
             <div className="flex-1 h-px" style={{ background: "var(--border)" }} />

@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About — AltTab",
+  title: "About — SideTracked",
   description:
-    "AltTab is a personal blog covering tech, consumer electronics, gaming, lifestyle, and productivity — always sidetracked, never bored.",
+    "SideTracked is a personal blog covering tech, consumer electronics, gaming, lifestyle, and productivity — always sidetracked, never bored.",
 };
 
 export default function AboutPage() {
@@ -24,11 +24,7 @@ export default function AboutPage() {
           stroke="currentColor"
           strokeWidth="2"
         >
-          <path
-            d="M19 12H5M12 5l-7 7 7 7"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
+          <path d="M19 12H5M12 5l-7 7 7 7" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         Home
       </Link>
@@ -45,32 +41,25 @@ export default function AboutPage() {
           className="text-4xl md:text-5xl font-bold leading-tight mb-5"
           style={{ color: "var(--text)" }}
         >
-          Alt
-          <span style={{ color: "var(--accent)" }}>Tab</span>
+          Side
+          <span style={{ color: "var(--accent)" }}>Tracked</span>
         </h1>
         <p
           className="max-w-2xl text-base md:text-lg leading-relaxed"
           style={{ color: "var(--text-muted)" }}
         >
-          Always sidetracked, never bored. AltTab is a personal blog about the
-          things worth talking about — consumer electronics, tech deep-dives,
-          gaming, productivity, and whatever random rabbit hole we fell into
-          this week.
+          Always sidetracked, never bored. SideTracked is a personal blog about the things worth
+          talking about — consumer electronics, tech deep-dives, gaming, productivity, and whatever
+          random rabbit hole we fell into this week.
         </p>
       </section>
 
       {/* Divider */}
-      <div
-        className="mb-14"
-        style={{ height: "1px", background: "var(--border)" }}
-      />
+      <div className="mb-14" style={{ height: "1px", background: "var(--border)" }} />
 
       {/* What we cover */}
       <section className="mb-14">
-        <h2
-          className="text-2xl font-bold mb-6"
-          style={{ color: "var(--text)" }}
-        >
+        <h2 className="text-2xl font-bold mb-6" style={{ color: "var(--text)" }}>
           What we cover
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -115,10 +104,7 @@ export default function AboutPage() {
               }}
             >
               <p className="text-2xl mb-2">{emoji}</p>
-              <p
-                className="font-semibold mb-1"
-                style={{ color: "var(--text)" }}
-              >
+              <p className="font-semibold mb-1" style={{ color: "var(--text)" }}>
                 {title}
               </p>
               <p className="text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
@@ -128,7 +114,6 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
-
     </div>
   );
 }

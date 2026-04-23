@@ -9,12 +9,14 @@ export default function Footer() {
       <div className="max-w-5xl mx-auto px-5 py-10 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
         <div className="flex items-center gap-1.5">
           <span style={{ color: "var(--text)" }} className="font-semibold">
-            Alt<span style={{ color: "var(--accent)" }}>Tab</span>
+            Side<span style={{ color: "var(--accent)" }}>Tracked</span>
           </span>
           <span>— always sidetracked, never bored.</span>
         </div>
         <div className="flex items-center gap-5">
-          <Link href="/about" className="hover:text-white transition-colors">About</Link>
+          <Link href="/about" className="hover:text-white transition-colors">
+            About
+          </Link>
           <a
             href="https://twitter.com"
             target="_blank"
@@ -24,7 +26,7 @@ export default function Footer() {
             Twitter
           </a>
         </div>
-        <p>© {new Date().getFullYear()} AltTab. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} SideTracked. All rights reserved.</p>
       </div>
     </footer>
   );
