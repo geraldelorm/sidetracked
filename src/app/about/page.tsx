@@ -129,41 +129,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Divider */}
-      <div
-        className="mb-14"
-        style={{ height: "1px", background: "var(--border)" }}
-      />
-
-      {/* CTA */}
-      <section className="text-center">
-        <p
-          className="text-xs font-semibold tracking-widest uppercase mb-4"
-          style={{ color: "var(--accent)" }}
-        >
-          Stay in the loop
-        </p>
-        <h2
-          className="text-2xl md:text-3xl font-bold mb-4"
-          style={{ color: "var(--text)" }}
-        >
-          Don&rsquo;t miss a detour
-        </h2>
-        <p
-          className="max-w-md mx-auto text-sm leading-relaxed mb-6"
-          style={{ color: "var(--text-muted)" }}
-        >
-          Subscribe to get new posts delivered straight to your inbox. No spam,
-          no filler — just the good stuff.
-        </p>
-        <Link
-          href="/#subscribe"
-          className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold transition-opacity hover:opacity-90"
-          style={{ background: "var(--accent)", color: "#fff" }}
-        >
-          Subscribe
-        </Link>
-      </section>
     </div>
   );
 }
