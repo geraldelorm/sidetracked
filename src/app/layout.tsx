@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 import AdSense from '@/components/AdSense';
+import Script from 'next/script';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ThemeProvider from '@/components/ThemeProvider';
@@ -10,7 +11,9 @@ import { Analytics } from '@vercel/analytics/react';
 const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] });
 const geistMono = Geist_Mono({ variable: '--font-geist-mono', subsets: ['latin'] });
 
-const BLOG_URL = process.env.BLOG_URL ?? 'https://sidetracked-two.vercel.app';
+const BLOG_URL = process.env.BLOG_URL ?? 'https://sidetracked-blog.co.uk';
+
+const GA_ID = 'G-ZH3ZM92DBL';
 
 export const metadata: Metadata = {
   metadataBase: new URL(BLOG_URL),
@@ -48,7 +51,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <head>
-        <AdSense/>
+        <AdSense />
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+          strategy='afterInteractive'
+        />
+        <Script id='google-analytics' strategy='afterInteractive'>{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GA_ID}');
+        `}</Script>
       </head>
       <body className='flex flex-col min-h-screen'>
         <ThemeProvider>
