@@ -6,7 +6,7 @@ export default function AdSense() {
   return (
     <Script
       async
-      src={`https://pagead2.googlesyncdication.com/pagead/js/adsbygoogle.js?client=ca-pub-9012185624278768`}
+      src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9012185624278768`}
       crossOrigin='anonymous'
     />
   );
