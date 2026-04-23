@@ -1,25 +1,54 @@
 "use client";
 
-// Swap this out for a real Google AdSense unit once approved.
-// Add your client ID to .env.local as NEXT_PUBLIC_ADSENSE_CLIENT_ID
-// then replace the placeholder div with:
-// <ins className="adsbygoogle" data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_CLIENT_ID} data-ad-slot="..." />
+import { useEffect, useRef } from "react";
+
+const AD_SLOTS = {
+  horizontal: "2774729962", // 728×90 leaderboard
+  sidebar: "1690854794",    // 300×250 medium rectangle
+};
+
+const AD_SIZES: Record<string, { width: number; height: number }> = {
+  horizontal: { width: 728, height: 90 },
+  sidebar: { width: 300, height: 250 },
+};
 
 export default function AdBanner({ slot = "horizontal" }: { slot?: "horizontal" | "sidebar" }) {
-  const isSidebar = slot === "sidebar";
+  const ref = useRef<HTMLModElement>(null);
+  const pushed = useRef(false);
+
+  useEffect(() => {
+    if (pushed.current) return;
+    try {
+      const adsbygoogle = (window as any).adsbygoogle;
+      if (adsbygoogle) {
+        adsbygoogle.push({});
+        pushed.current = true;
+      }
+    } catch (e) {
+      // adsbygoogle not ready yet
+    }
+  }, []);
+
+  const { width, height } = AD_SIZES[slot];
 
   return (
     <div
-      className={`flex items-center justify-center rounded-xl text-xs font-medium ${
-        isSidebar ? "w-full h-60" : "w-full h-24"
-      }`}
       style={{
-        background: "var(--bg-muted)",
-        border: "1px dashed var(--border)",
-        color: "var(--text-faint)",
+        minWidth: width,
+        minHeight: height,
+        overflow: "hidden",
+        display: "flex",
+        justifyContent: "center",
       }}
     >
-      Advertisement · {isSidebar ? "300×250" : "728×90"}
+      <ins
+        ref={ref}
+        className="adsbygoogle"
+        style={{ display: "block", width, height }}
+        data-ad-client="ca-pub-9012185624278768"
+        data-ad-slot={AD_SLOTS[slot]}
+        data-ad-format="fixed"
+      />
     </div>
   );
 }
