@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 const BLOG_URL = process.env.BLOG_URL ?? "https://sidetracked-blog.co.uk";
 
-const GA_ID = "G-ZH3ZM92DBL";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID ?? "";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BLOG_URL),

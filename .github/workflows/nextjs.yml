@@ -65,6 +65,8 @@ jobs:
           NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
           NOTION_SUBSCRIBERS_DB_ID: ${{ secrets.NOTION_SUBSCRIBERS_DB_ID }}
           BLOG_URL: https://www.sidetracked-blog.co.uk
+          NEXT_PUBLIC_ADSENSE_ID: ${{ secrets.NEXT_PUBLIC_ADSENSE_ID }}
+          NEXT_PUBLIC_GA_ID: ${{ secrets.NEXT_PUBLIC_GA_ID }}
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Upload artifact

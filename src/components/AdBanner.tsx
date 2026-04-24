@@ -45,7 +45,7 @@ export default function AdBanner({ slot = "horizontal" }: { slot?: "horizontal" 
         ref={ref}
         className="adsbygoogle"
         style={{ display: "block", width, height }}
-        data-ad-client="ca-pub-9012185624278768"
+        data-ad-client={process.env.NEXT_PUBLIC_ADSENSE_ID}
         data-ad-slot={AD_SLOTS[slot]}
         data-ad-format="fixed"
       />
