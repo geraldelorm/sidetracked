@@ -3,8 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import ThemeToggle from "./ThemeToggle";
-
-const CATEGORIES = ["Tech", "Lifestyle", "Gaming", "Productivity", "Opinion"];
+import { CATEGORIES } from "@/lib/categories";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);

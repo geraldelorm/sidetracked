@@ -2,10 +2,9 @@ import { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 import { getAllPosts } from "@/lib/notion";
+import { CATEGORY_SLUGS } from "@/lib/categories";
 
 const BLOG_URL = process.env.BLOG_URL ?? "https://sidetracked-blog.co.uk";
-
-const CATEGORIES = ["tech", "lifestyle", "gaming", "productivity", "opinion"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const posts = await getAllPosts();
@@ -17,7 +16,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  const categoryEntries: MetadataRoute.Sitemap = CATEGORIES.map((cat) => ({
+  const categoryEntries: MetadataRoute.Sitemap = CATEGORY_SLUGS.map((cat) => ({
     url: `${BLOG_URL}/category/${cat}`,
     lastModified: new Date(),
     changeFrequency: "daily",
