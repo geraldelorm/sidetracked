@@ -3,13 +3,12 @@ import PostCard from "@/components/PostCard";
 import AdBanner from "@/components/AdBanner";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CATEGORY_SLUGS } from "@/lib/categories";
 
 export const revalidate = 60;
 
-const CATEGORIES = ["tech", "lifestyle", "gaming", "productivity", "opinion"];
-
 export async function generateStaticParams() {
-  return CATEGORIES.map((category) => ({ category }));
+  return CATEGORY_SLUGS.map((category) => ({ category }));
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ category: string }> }) {
@@ -24,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ category:
 export default async function CategoryPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
 
-  if (!CATEGORIES.includes(category.toLowerCase())) notFound();
+  if (!CATEGORY_SLUGS.includes(category.toLowerCase())) notFound();
 
   const allPosts = await getAllPosts();
   const label = category.charAt(0).toUpperCase() + category.slice(1);
