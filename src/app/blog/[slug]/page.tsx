@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const result = await getPostBySlug(slug);
   if (!result) return {};
   const { post } = result;
-  const BLOG_URL = process.env.BLOG_URL ?? "https://sidetracked-two.vercel.app";
+  const BLOG_URL = process.env.BLOG_URL ?? "https://sidetracked-blog.co.uk";
   return {
     title: post.title,
     description: post.excerpt,
